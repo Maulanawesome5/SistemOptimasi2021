@@ -77,8 +77,33 @@ for portfolio in range(num_portfolios):
     ann_sd = sd * np.sqrt(250)
     portfolio_volatile.append(ann_sd)
 
+data = {'Returns' : portfolio_return, 'Volatility' : portfolio_volatile}
+
+for counter, symbol in enumerate(dataFrame.columns.tolist()):
+    print(counter, symbol)
+    data[symbol + ' weight'] = [bobot[counter] for bobot in portfolio_bobot]
+
+portfolio = pd.DataFrame(data)
+print("\n\tTabel Return, Volatilitas, dan Bobot Saham \n",portfolio.head())
 
 
+# Plot efficient frontier
+portfolio.plot.scatter(x='Volatility', y='Returns', marker='o', s=10, alpha=0.3, grid=True, figsize=[10,10])
+#plt.show() # Menampilkan grafik scatter
+
+
+# How to read the Efficient Frontier
+min_vol_port = portfolio.iloc[portfolio['Volatility'].idxmin()]
+print("\n\tMinimal Volatilitas Portfolio saham\n", min_vol_port)
+
+# Plotting the minimum volatility portfolio
+plt.subplots(figsize=[10, 10])
+plt.scatter(portfolio['Volatility'], portfolio['Returns'], marker='o', s=10, alpha=0.3)
+plt.scatter(min_vol_port[1], min_vol_port[0], color='r', marker='*', s=500)
+# plt.show() # Menampilkan grafik scatter
+
+
+# Sharpe ratio
 
 
 
