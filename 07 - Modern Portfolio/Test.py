@@ -33,7 +33,27 @@ print("\n",f"Volatilitas APLN.JK = {apln_volatile}, Volatilitas ASRI.JK = {asri_
 test.pct_change().apply(
     lambda x: np.log(1 + x)).std().apply(
         lambda x: x*np.sqrt(250)).plot(kind='bar')
-# end
+# plt.show()
+
+# Persentase perubahan
+test1 = test.pct_change().apply(lambda x: np.log(1+x))
+print(test1.head())
+
+# Menghitung covariance kedua saham
+test1['APLN.JK'].cov(test1['ASRI.JK'])
+print("\n\tNilai Covariance antara APLN dengan ASRI \n",test1)
+
+# Menghitung correlation antara kedua saham
+test1['APLN.JK'].corr(test1['ASRI.JK'])
+print("\n\tNilai Correlation antara APLN dengan ASRI \n", test1)
+
+# Menghitung Expected Return kedua saham
+test2 = test.pct_change().apply(lambda x: np.log(1 + x))
+print("\n\tNilai Expected Return antara APLN dengan ASRI \n", test2)
+
+# Menghitung bobot (weight) untuk alokasi dana terhadap kedua saham
+
+
 
 
 
