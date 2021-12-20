@@ -52,9 +52,10 @@ test2 = test.pct_change().apply(lambda x: np.log(1 + x))
 print("\n\tNilai Expected Return antara APLN dengan ASRI \n", test2)
 
 # Menghitung bobot (weight) untuk alokasi dana terhadap kedua saham
+bobot = [0.2, 0.8] # define bobot untuk alokasi dana
+e_r_ind = test2.mean()
+print("\n\tBobot expected return APLN dengan ASRI \n",e_r_ind)
 
-
-
-
-
-
+# Total expected return
+e_r = (e_r_ind * bobot).sum()
+print("\n\tTotal expected return saham ASRI dan APLN \n", e_r)
