@@ -105,11 +105,16 @@ plt.scatter(min_vol_port[1], min_vol_port[0], color='r', marker='*', s=500)
 
 # Sharpe ratio
 
+# Optimal Risky Portfolio
+# Finding optimal risky portfolio
+faktor_resiko = 0.01 # Faktor resiko
+optimal_risky_port = portfolio.iloc[((portfolio['Returns'] - faktor_resiko) / portfolio['Volatility']).idxmax()]
+print("\n\tPortfolio Saham dengan Resiko yang optimal\n", optimal_risky_port)
 
-
-
-
-
-
-
+# Plotting optimal portfolio
+plt.subplots(figsize=(10, 10))
+plt.scatter(portfolio['Volatility'], portfolio['Returns'],marker='o', s=10, alpha=0.3)
+plt.scatter(min_vol_port[1], min_vol_port[0], color='r', marker='*', s=500)
+plt.scatter(optimal_risky_port[1], optimal_risky_port[0], color='g', marker='*', s=500)
+# plt.show() # Menampilkan grafik scatter
 
