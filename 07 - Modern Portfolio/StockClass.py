@@ -1,26 +1,16 @@
-import numpy as np
-import matplotlib.pyplot as plt
+import os
+import glob
 import pandas as pd
-import datetime as dt
 
+# Import data
+alamat_file = r'D:\LATIHAN PEMROGRAMAN\SISTEM OPTIMASI\DATA_HARGA_SAHAM'
+fileName = os.listdir(alamat_file)
+print(fileName)
 
-class Saham:
-    # Deklarasi variabel waktu
-    start = dt.datetime
-    end = dt.datetime.now()
+df = pd.DataFrame()
 
-    # Direktori data, bertipe data string
-    data_loc = r'D:\LATIHAN PEMROGRAMAN\SISTEM OPTIMASI\DATA_HARGA_SAHAM'
+for f in fileName:
+    data = pd.read_excel(f, 'Sheet1')
+    df = df.append(data)
 
-    ticker_saham = data_loc + r'\file.xlsx'
-
-    def __init__(self, ticker, time, directory):
-        self.ticker_saham = ticker
-        self.start_time = time
-        self.directory = directory
-
-
-# Instance / object saham
-apln_jk = Saham('APLN.JK')
-print(apln_jk)
-
+print(df)
