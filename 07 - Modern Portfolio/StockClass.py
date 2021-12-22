@@ -1,5 +1,6 @@
 import pandas_datareader as web
-from Saham import dataFrame
+# from Saham import dataFrame
+from tabulate import tabulate # Pip install tabulate
 
 """
 __________________________________________________________
@@ -38,7 +39,36 @@ class Saham:
         self.__TickerSaham = tickerSaham
         self.__HargaSaham = hargaSaham
 
+    def SektorEmiten(self):
+        return self.__Sektor
+    
+    def SubSektorEmiten(self):
+        return self.__SubSektor
+    
+    def TickerSaham(self):
+        return self.__TickerSaham
+    
+    def HargaSaham(self):
+        return self.__HargaSaham
 
-apln = Saham()
+    def DisplaySaham(self):
+        DisplayTable = [['Sektor', 'Subsektor', 'Kode Saham', 'Harga Saham'],
+        [self.__Sektor, self.__SubSektor, self.__TickerSaham, self.__HargaSaham]]
+        print(tabulate(DisplayTable))
+
+
+apln = Saham("Property", "Real Estate", "APLN.JK", 123)
+asri = Saham("Property", "Real Estate", "ASRI.JK", 163)
+
+asri.DisplaySaham()
+
+
+
+
+
+
+
+
+
 
 # End program
