@@ -1,6 +1,3 @@
-import pandas_datareader as web
-from Saham import dataFrame
-
 """
 __________________________________________________________
 Tabel Sektor | Tabel Subsektor | Tabel Saham | Tabel Harga
@@ -18,14 +15,23 @@ ____________________________________________________________
 No. | Ticker Saham | Nama Saham | Harga | Bobot | Jumlah Lot
 ____________________________________________________________
 """
+# Import package
+import tkinter as tk
 
-class Saham:
-    index_nomor = 1
-    
-    def __init__(self, saham):
-        self.__Saham = saham
+# Membuat window aplikasi
+main_window = tk.Tk()
 
+# Membuat tombol dan label
+label1 = tk.Label(main_window, text="Label 1")
+label2 = tk.Label(main_window, text="Label 2")
+tombol1 = tk.Button(main_window, text="Tombol 1")
+tombol2 = tk.Button(main_window, text="Tombol 2")
 
-apln = Saham()
+# Method positioning
+label1.pack()
+label2.pack()
+tombol1.pack()
+tombol2.pack()
 
-# End program
+# Method untuk menampilkan window GUI
+main_window.mainloop()
