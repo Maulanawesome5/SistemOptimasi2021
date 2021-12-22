@@ -1,16 +1,30 @@
-import os
-import glob
-import pandas as pd
+import pandas_datareader as web
 
-# Import data
-alamat_file = r'D:\LATIHAN PEMROGRAMAN\SISTEM OPTIMASI\DATA_HARGA_SAHAM'
-fileName = os.listdir(alamat_file)
-print(fileName)
 
-df = pd.DataFrame()
+"""
+__________________________________________________________
+Tabel Sektor | Tabel Subsektor | Tabel Saham | Tabel Harga
+__________________________________________________________
 
-for f in fileName:
-    data = pd.read_excel(f, 'Sheet1')
-    df = df.append(data)
+Input :
+1. Input Master -> Sektor, Subsektor, Kode Saham (mis. ASII, ACES, AGII...)
+2. Input Investasi
+3. Input Harga Beli
+4. Input Kalkulasi
+5. Transaksi
 
-print(df)
+Output Tabel :
+____________________________________________________________
+No. | Ticker Saham | Nama Saham | Harga | Bobot | Jumlah Lot
+____________________________________________________________
+"""
+
+class Saham:
+
+    def __init__(self):
+        pass
+    
+    pass
+
+
+# End program
