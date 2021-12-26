@@ -37,7 +37,7 @@ class Saham:
         self.__SubSektor = subsektor
         self.__TickerSaham = tickerSaham
         self.__HargaSaham = hargaSaham
-    
+        
     @property
     def SektorEmiten(self):
         pass

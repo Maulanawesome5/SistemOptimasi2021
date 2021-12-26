@@ -26,22 +26,31 @@ ______________________________________________________________________________
 5.  |    SMRA.JK   | PT. Summarecon Agung Tbk.    |  850  |
 """
 # Import package
-import tkinter as tk
+import pandas as pd
+import numpy as np
+import pandas_datareader
+import tkinter
+import matplotlib.pyplot as plt
+from tkinter import ttk
+from pandas_datareader import web
+from tabulate import tabulate
 
-# Membuat window aplikasi
-main_window = tk.Tk()
+class Saham:
+   pass
 
-# Membuat tombol dan label
-label1 = tk.Label(main_window, text="Label 1")
-label2 = tk.Label(main_window, text="Label 2")
-tombol1 = tk.Button(main_window, text="Tombol 1")
-tombol2 = tk.Button(main_window, text="Tombol 2")
 
-# Method positioning
-label1.pack()
-label2.pack()
-tombol1.pack()
-tombol2.pack()
+def inputKodeSaham(nama):
+   print(f"Untuk menjalankan program, silahkan masukan ticker saham yang anda inginkan. \
+   Dibelakangnya diakhiri dengan .JK 'Contoh: BBCA.JK'\n\n")
 
-# Method untuk menampilkan window GUI
-main_window.mainloop()
+   nama = [] # List kosong untuk menampung input nama saham
+
+   inputUser = input("Masukan kode saham : ")   
+   pass
+
+inputNamaSaham = input("Masukkan nama saham")
+
+
+
+
+
