@@ -32,23 +32,33 @@ import pandas_datareader
 import tkinter
 import matplotlib.pyplot as plt
 from tkinter import ttk
-from pandas_datareader import web
+from pandas_datareader import data
 from tabulate import tabulate
 
-class Saham:
-   pass
 
+namaSaham = [] # List kosong untuk menampung input nama saham
+stop = False
 
-def inputKodeSaham(nama):
-   print(f"Untuk menjalankan program, silahkan masukan ticker saham yang anda inginkan. \
-   Dibelakangnya diakhiri dengan .JK 'Contoh: BBCA.JK'\n\n")
+print(f"\n\nUntuk menjalankan program, silahkan masukan ticker saham yang anda inginkan. \
+Dibelakangnya diakhiri dengan .JK 'Contoh: BBCA.JK'\n\n")
 
-   nama = [] # List kosong untuk menampung input nama saham
+while(not stop):
+   inputNama_Saham = input("Masukkan kode ticker saham : ")
+   namaSaham.append(inputNama_Saham)
 
-   inputUser = input("Masukan kode saham : ")   
-   pass
+   tanya = input("Tambahkan lagi (y/n) ?")
+   if(tanya == 'n'):
+      stop = True
 
-inputNamaSaham = input("Masukkan nama saham")
+# Preview hasil input list data nama saham
+print("\nSaham yang telah anda pilih adalah : \n", namaSaham)
+print(2*"\n") # Indentasi enter
+
+# Membuat data frame dari list variabel, kemudian scrapping data melalui yahoo finance
+dataFrame = data.DataReader(namaSaham, 'yahoo', start = '2020/12/07', end = '2021/12/07')
+
+print(dataFrame)
+
 
 
 
