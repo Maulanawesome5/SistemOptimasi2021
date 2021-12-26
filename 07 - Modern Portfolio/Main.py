@@ -26,22 +26,41 @@ ______________________________________________________________________________
 5.  |    SMRA.JK   | PT. Summarecon Agung Tbk.    |  850  |
 """
 # Import package
-import tkinter as tk
+import pandas as pd
+import numpy as np
+import pandas_datareader
+import tkinter
+import matplotlib.pyplot as plt
+from tkinter import ttk
+from pandas_datareader import data
+from tabulate import tabulate
 
-# Membuat window aplikasi
-main_window = tk.Tk()
 
-# Membuat tombol dan label
-label1 = tk.Label(main_window, text="Label 1")
-label2 = tk.Label(main_window, text="Label 2")
-tombol1 = tk.Button(main_window, text="Tombol 1")
-tombol2 = tk.Button(main_window, text="Tombol 2")
+namaSaham = [] # List kosong untuk menampung input nama saham
+stop = False
 
-# Method positioning
-label1.pack()
-label2.pack()
-tombol1.pack()
-tombol2.pack()
+print(f"\n\nUntuk menjalankan program, silahkan masukan ticker saham yang anda inginkan. \
+Dibelakangnya diakhiri dengan .JK 'Contoh: BBCA.JK'\n\n")
 
-# Method untuk menampilkan window GUI
-main_window.mainloop()
+while(not stop):
+   inputNama_Saham = input("Masukkan kode ticker saham : ")
+   namaSaham.append(inputNama_Saham)
+
+   tanya = input("Tambahkan lagi (y/n) ?")
+   if(tanya == 'n'):
+      stop = True
+
+# Preview hasil input list data nama saham
+print("\nSaham yang telah anda pilih adalah : \n", namaSaham)
+print(2*"\n") # Indentasi enter
+
+# Membuat data frame dari list variabel, kemudian scrapping data melalui yahoo finance
+dataFrame = data.DataReader(namaSaham, 'yahoo', start = '2020/12/07', end = '2021/12/07')
+
+print(dataFrame)
+
+
+
+
+
+
