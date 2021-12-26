@@ -33,10 +33,12 @@ dataFrame = data.DataReader(namaSaham, 'yahoo', start = '2020/12/07', end = '202
 
 # Memilih tabel harga close pada dataframe
 closingPrice = dataFrame['Close']
-print(closingPrice.head())
+print("Tabel harga Closing")
+print(closingPrice.head(), "\n")
 
 # Menghitung persentase perubahan harga
-apln = closingPrice['APLN.JK'].pct_change().apply(lambda x: np.log(1 + x))
-asri = closingPrice['ASRI.JK'].pct_change().apply(lambda x: np.log(1 + x))
-print("\n", apln.head(), asri.head())
+apln = closingPrice.iloc[0].pct_change().apply(lambda x: np.log(1 + x))
+asri = closingPrice.iloc[1].pct_change().apply(lambda x: np.log(1 + x))
+print(f"\nPersentase perubahan harga {namaSaham[0]} \n", apln.head())
+print(f"\nPersentase perubahan harga {namaSaham[1]} \n", asri.head())
 
